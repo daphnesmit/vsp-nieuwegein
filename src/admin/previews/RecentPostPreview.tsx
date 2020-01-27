@@ -1,8 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { RecentPostTemplate } from '../../templates/recent-post'
 
-const RecentPostPreview = ({ entry, widgetFor }) => {
+export interface RecentPostPreviewProps {
+  entry: {
+    getIn: (props: any) => any
+  }
+  widgetFor: (props: any) => any
+}
+
+const RecentPostPreview: React.FC<RecentPostPreviewProps> = ({ entry, widgetFor }) => {
   return (
     <RecentPostTemplate
       content={widgetFor('body')}
@@ -12,11 +18,5 @@ const RecentPostPreview = ({ entry, widgetFor }) => {
   )
 }
 
-RecentPostPreview.propTypes = {
-  entry: PropTypes.shape({
-    getIn: PropTypes.func,
-  }),
-  widgetFor: PropTypes.func,
-}
 
 export default RecentPostPreview

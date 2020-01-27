@@ -6,10 +6,10 @@ import Content, { ContentProps, HTMLContent } from '../components/Content'
 
 interface RecentPostTemplateProps {
   content: string
-  contentComponent: React.FC<ContentProps>
+  contentComponent?: React.FC<ContentProps>
   description: string
   title: string
-  helmet: any
+  helmet?: any
 }
 
 export const RecentPostTemplate: React.FC<RecentPostTemplateProps> = ({

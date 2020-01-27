@@ -13,6 +13,7 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "type-check": "tsc --noEmit",
     "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx,.js",
+    "generate-types": "graphql-codegen",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
@@ -34,6 +35,9 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.11.2",
+    "@graphql-codegen/typescript": "^1.11.2",
+    "@graphql-codegen/typescript-operations": "^1.11.2",
     "@types/react-helmet": "^5.0.15",
     "@typescript-eslint/eslint-plugin": "^2.18.0",
     "@typescript-eslint/parser": "^2.18.0",

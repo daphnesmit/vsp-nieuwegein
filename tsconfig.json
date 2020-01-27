@@ -1,8 +1,12 @@
+
+
+
 {
   "compilerOptions": {
     "noUnusedParameters": true,
     "preserveConstEnums": true,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "noUnusedLocals": true,
     "removeComments": false,
@@ -17,10 +21,16 @@
     "lib": [
       "dom",
       "esnext"
-    ]
+    ], 
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
   },
   "include": [
-    "./src/**/*"
+    "./src/**/*",
   ],
   "exclude": [
     "node_modules",
