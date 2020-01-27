@@ -2,15 +2,34 @@ backend:
   name: github
   repo: daphnesmit/vsp-nieuwegein
   branch: develop
-media_folder: static/assets
-public_folder: assets
+  commit_messages:
+    create: 'Create {{collection}} “{{slug}}”'
+    update: 'Update {{collection}} “{{slug}}”'
+    delete: 'Delete {{collection}} “{{slug}}”'
+    uploadMedia: '[skip ci] Upload “{{path}}”'
+    deleteMedia: '[skip ci] Delete “{{path}}”'
+
+media_folder: static/img
+public_folder: /img
+
 collections:
   - name: recent
     label: Actueel
-    folder: recent
+    folder: "src/pages/recent"
     create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { name: path, label: Path }
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "recent-post"}
       - { name: date, label: Date, widget: datetime }
       - { name: title, label: Title }
       - { name: body, label: Body, widget: markdown }
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/pages/index.md"
+        label: "Home Page"
+        name: "index"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page" }
+          - { label: Title, name: title, widget: string }
+          - { label: Image, name: image, widget: image }

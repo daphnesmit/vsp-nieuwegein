@@ -1,40 +1,61 @@
 const path = require("path")
+const { createFilePath } = require('gatsby-source-filesystem')
+const { fmImagesToRelative } = require('gatsby-remark-relative-images')
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
-  const recentTemplate = path.resolve(`src/templates/recent.js`)
   const result = await graphql(`
-    {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
-        edges {
-          node {
-            excerpt(pruneLength: 250)
-            html
-            id
-            frontmatter {
-              date
-              path
-              title
-            }
+  {
+    allMarkdownRemark(limit: 1000) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            templateKey
           }
         }
       }
     }
+  }
   `)
   // Handle errors
   if (result.errors) {
+    result.errors.forEach(e => console.error(e.toString()))
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
-  console.log("result.data", result.data)
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  const posts = result.data.allMarkdownRemark.edges
+  
+  posts.forEach(edge => {
+    const id = edge.node.id
+    console.log("result.data", edge.node.frontmatter)
     createPage({
-      path: node.frontmatter.path,
-      component: recentTemplate,
-      context: {}, // additional data can be passed via context
+      path: edge.node.fields.slug,
+      component: path.resolve(
+        `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
+      ),
+      // additional data can be passed via context
+      context: {
+        id,
+      },
     })
   })
 }
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+  fmImagesToRelative(node) // convert image paths for gatsby images
+
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = createFilePath({ node, getNode })
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    })
+  }
+}
+

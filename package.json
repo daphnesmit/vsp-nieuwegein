@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "vsp-nieuwegein",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "Welke perspectieven hebben wij als oud en jong in het toekomstige Nieuwegein? Wat gaat de komende structuurvisie bewerkstelligen?",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -16,11 +16,14 @@
   "dependencies": {
     "gatsby": "^2.19.5",
     "gatsby-plugin-netlify-cms": "^4.1.37",
+    "gatsby-plugin-react-helmet": "^3.1.21",
+    "gatsby-remark-relative-images": "^0.2.3",
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-transformer-remark": "^2.6.48",
     "netlify-cms-app": "^2.11.10",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1"
   },
   "devDependencies": {
     "prettier": "^1.19.1"
