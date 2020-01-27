@@ -6,13 +6,20 @@
 
 module.exports = {
   siteMetadata: {
+    author: "VSP Nieuwegein",
     title: "VSP Nieuwegein",
     description:
       "Welke perspectieven hebben wij als oud en jong in het toekomstige Nieuwegein? Wat gaat de komende structuurvisie bewerkstelligen?",
   },
   plugins: [
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-netlify-cms",
+    "gatsby-plugin-typescript",
+    {
+      resolve: "gatsby-plugin-netlify-cms",
+      options: {
+        modulePath: `${__dirname}/src/cms`,
+      },
+    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: "gatsby-source-filesystem",

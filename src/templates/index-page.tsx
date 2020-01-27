@@ -1,10 +1,14 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { graphql } from "gatsby"
+import React from 'react'
+import { graphql } from 'gatsby'
 
-import BaseLayout from "../components/BaseLayout"
+import BaseLayout from '../components/BaseLayout'
 
-export const HomePageTemplate = ({ title, image }) => {
+interface HomePageTemplateProps {
+  title: string
+  image: any
+}
+
+export const HomePageTemplate: React.FC<HomePageTemplateProps> = ({ title, image }) => {
   return (
     <div
       style={{
@@ -13,29 +17,31 @@ export const HomePageTemplate = ({ title, image }) => {
         })`,
         backgroundPosition: `top left`,
         backgroundAttachment: `fixed`,
-      }}
-    >
+      }}>
       <h1
-        className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
         style={{
-          boxShadow:
-            "rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px",
-          color: "white",
-          height: "100vh",
-          padding: "0.25em",
-        }}
-      >
+          color: 'white',
+          height: '100vh',
+          padding: '0.25em',
+        }}>
         {title}
       </h1>
     </div>
   )
 }
-HomePageTemplate.propTypes = {
-  title: PropTypes.string,
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+
+interface HomePageProps {
+  data: {
+    markdownRemark: {
+      frontmatter: {
+        title: string
+        image: any
+      }
+    }
+  }
 }
 
-const HomePage = ({ data }) => {
+const HomePage: React.FC<HomePageProps> = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
@@ -45,13 +51,6 @@ const HomePage = ({ data }) => {
   )
 }
 
-HomePage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
-}
 
 export default HomePage
 

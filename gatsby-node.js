@@ -31,11 +31,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   posts.forEach(edge => {
     const id = edge.node.id
-    console.log("result.data", edge.node.frontmatter)
     createPage({
       path: edge.node.fields.slug,
       component: path.resolve(
-        `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
+        `src/templates/${String(edge.node.frontmatter.templateKey)}.tsx`
       ),
       // additional data can be passed via context
       context: {

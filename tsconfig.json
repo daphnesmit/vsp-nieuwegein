@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "noUnusedParameters": true,
+    "preserveConstEnums": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "noUnusedLocals": true,
+    "removeComments": false,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "module": "commonjs",
+    "target": "esnext",
+    "noEmit": true,
+    "strict": true,
+    "jsx": "preserve",
+    "lib": [
+      "dom",
+      "esnext"
+    ]
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "public",
+    ".cache"
+  ]
+}

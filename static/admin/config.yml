@@ -15,21 +15,29 @@ public_folder: /img
 collections:
   - name: recent
     label: Actueel
-    folder: "src/pages/recent"
+    folder: src/pages/recent
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "recent-post"}
-      - { label: "Title", name: "title", widget: "string"}
-      - { label: "Publish Date", name: "date", widget: "datetime"}
-      - { label: "Body", name: "body", widget: "markdown"}
-  - name: "pages"
-    label: "Pages"
+      - { label: Template Key, name: templateKey, widget: hidden, default: recent-post }
+      - { label: Title, name: title, widget: string }
+      - { label: Publish Date, name: date, widget: datetime }
+      - { label: Body, name: body, widget: markdown }
+  - name: pages
+    label: Pages
     files:
-      - file: "src/pages/index.md"
-        label: "Home Page"
-        name: "index"
+      - file: src/pages/index.md
+        label: Home Page
+        name: index
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page" }
+          - { label: Template Key, name: templateKey, widget: hidden, default: index-page }
           - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: text }
           - { label: Image, name: image, widget: image }
+      - file: src/pages/recent/index.md
+        label: Recent
+        name: recent
+        fields:
+          - { label: Template Key, name: templateKey, widget: hidden, default: recent-page }
+          - { label: Title, name: title, widget: string }
+          - { label: Body, name: body, widget: markdown }
