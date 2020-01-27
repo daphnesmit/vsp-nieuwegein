@@ -1,0 +1,16 @@
+backend:
+  name: github
+  repo: daphnesmit/vsp-nieuwegein
+  branch: develop
+media_folder: static/assets
+public_folder: assets
+collections:
+  - name: recent
+    label: Actueel
+    folder: recent
+    create: true
+    fields:
+      - { name: path, label: Path }
+      - { name: date, label: Date, widget: datetime }
+      - { name: title, label: Title }
+      - { name: body, label: Body, widget: markdown }
