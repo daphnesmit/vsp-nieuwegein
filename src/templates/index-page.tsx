@@ -1,8 +1,19 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import styled from "styled-components"
+import styled from 'styled-components'
 
 import BaseLayout from '../components/BaseLayout'
+import Button from '@material-ui/core/Button'
+
+const StyledButton = styled(Button)`
+  background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
+  border-radius: 3px;
+  border: 0;
+  color: white;
+  height: 48px;
+  padding: 0 30px;
+  box-shadow: 0 3px 5px 2px rgba(255, 105, 135, 0.3);
+`
 
 interface HomePageTemplateProps {
   title: string
@@ -35,6 +46,7 @@ export const HomePageTemplate: React.FC<HomePageTemplateProps> = ({ title, image
           padding: '0.25em',
         }}>
         {title}
+        <StyledButton>Styled Components</StyledButton>
       </h1>
     </Container>
   )
@@ -60,7 +72,6 @@ const HomePage: React.FC<HomePageProps> = ({ data }) => {
     </BaseLayout>
   )
 }
-
 
 export default HomePage
 

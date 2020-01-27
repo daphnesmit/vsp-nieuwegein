@@ -17,6 +17,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@material-ui/core": "^4.9.0",
     "@types/styled-components": "^4.4.2",
     "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.19.5",

@@ -95,6 +95,8 @@ const SEO: React.FC<SeoProps> = ({ description, lang = 'nl', meta, title }) => {
       />
 
       <link rel="mask-icon" href={`${withPrefix('/')}img/safari-pinned-tab.svg`} color="#ff4400" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     </Helmet>
   )
 }

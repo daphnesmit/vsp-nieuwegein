@@ -1,7 +1,7 @@
 import React from 'react'
 import { createGlobalStyle } from "styled-components"
 // import Footer from '../components/Footer'
-// import Navbar from '../components/Navbar'
+import Header from './Header'
 import Seo from './Seo'
 
 interface BaseLayoutProps {
@@ -19,7 +19,7 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({ title, children }) => {
     <div>
       <Seo title={title} />
       <GlobalStyle theme="purple" />
-      {/* <Navbar /> */}
+      <Header />
       <div>{children}</div>
       {/* <Footer /> */}
     </div>
