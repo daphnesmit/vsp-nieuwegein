@@ -12,6 +12,7 @@ module.exports = {
       "Welke perspectieven hebben wij als oud en jong in het toekomstige Nieuwegein? Wat gaat de komende structuurvisie bewerkstelligen?",
   },
   plugins: [
+    "gatsby-plugin-styled-components",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-typescript",
     {

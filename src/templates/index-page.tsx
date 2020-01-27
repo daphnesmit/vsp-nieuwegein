@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import styled from "styled-components"
 
 import BaseLayout from '../components/BaseLayout'
 
@@ -8,9 +9,18 @@ interface HomePageTemplateProps {
   image: any
 }
 
+const Container = styled.div`
+  margin: 3rem auto;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
+
 export const HomePageTemplate: React.FC<HomePageTemplateProps> = ({ title, image }) => {
   return (
-    <div
+    <Container
       style={{
         backgroundImage: `url(${
           !!image.childImageSharp ? image.childImageSharp.fluid.src : image
@@ -26,7 +36,7 @@ export const HomePageTemplate: React.FC<HomePageTemplateProps> = ({ title, image
         }}>
         {title}
       </h1>
-    </div>
+    </Container>
   )
 }
 
