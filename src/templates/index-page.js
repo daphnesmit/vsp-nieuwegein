@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 
-import Layout from "../components/Layout"
+import BaseLayout from "../components/BaseLayout"
 
 export const HomePageTemplate = ({ title, image }) => {
   return (
@@ -39,9 +39,9 @@ const HomePage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <Layout>
+    <BaseLayout>
       <HomePageTemplate title={frontmatter.title} image={frontmatter.image} />
-    </Layout>
+    </BaseLayout>
   )
 }
 

@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { graphql } from "gatsby"
-import Layout from "../components/Layout"
+import BaseLayout from "../components/BaseLayout"
 import Content, { HTMLContent } from "../components/Content"
 
 export const RecentPostTemplate = ({
@@ -44,7 +44,7 @@ const RecentPost = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
-    <Layout>
+    <BaseLayout>
       <RecentPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
@@ -60,7 +60,7 @@ const RecentPost = ({ data }) => {
         }
         title={post.frontmatter.title}
       />
-    </Layout>
+    </BaseLayout>
   )
 }
 
