@@ -5,7 +5,6 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 
 export const HomePageTemplate = ({ title, image }) => {
-  console.log(image)
   return (
     <div
       style={{

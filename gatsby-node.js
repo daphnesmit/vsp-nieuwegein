@@ -1,25 +1,25 @@
 const path = require("path")
-const { createFilePath } = require('gatsby-source-filesystem')
-const { fmImagesToRelative } = require('gatsby-remark-relative-images')
+const { createFilePath } = require("gatsby-source-filesystem")
+const { fmImagesToRelative } = require("gatsby-remark-relative-images")
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
   const result = await graphql(`
-  {
-    allMarkdownRemark(limit: 1000) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            templateKey
+    {
+      allMarkdownRemark(limit: 1000) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              templateKey
+            }
           }
         }
       }
     }
-  }
   `)
   // Handle errors
   if (result.errors) {
@@ -28,7 +28,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
   const posts = result.data.allMarkdownRemark.edges
-  
+
   posts.forEach(edge => {
     const id = edge.node.id
     console.log("result.data", edge.node.frontmatter)
@@ -58,4 +58,3 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
-
