@@ -10,5 +10,4 @@ export const HTMLContent: React.FC<ContentProps> = ({ content }) => (
 
 const Content: React.FC<ContentProps> = ({ content }) => <div>{content}</div>
 
-
 export default Content

@@ -1,38 +1,11 @@
+import { graphql } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
-import BaseLayout from '../components/BaseLayout'
-import Content, { ContentProps, HTMLContent } from '../components/Content'
 import { RecentPostByIdQuery } from 'types/graphql-types'
 
-interface RecentPostTemplateProps {
-  content?: string | null
-  contentComponent?: React.FC<ContentProps>
-  description?: string | null
-  title: string
-  helmet?: any
-}
-
-export const RecentPostTemplate: React.FC<RecentPostTemplateProps> = ({
-  content,
-  contentComponent,
-  description,
-  title,
-  helmet,
-}) => {
-  const PostContent = contentComponent || Content
-
-  return (
-    <section style={{ backgroundColor: 'orange', padding: 10 }}>
-      {helmet || ''}
-      <div>
-        <h1>{title}</h1>
-        {description && <p>{description}</p>}
-        {content && <PostContent content={content} />}
-      </div>
-    </section>
-  )
-}
+import BaseLayout from '@/components/BaseLayout'
+import { HTMLContent } from '@/components/Content'
+import { RecentPostTemplate } from '@/components/templates/RecentPostTemplate'
 
 interface RecentPostProps {
   data: RecentPostByIdQuery

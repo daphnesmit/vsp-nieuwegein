@@ -1954,8 +1954,6 @@ export type QuerySiteArgs = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
   port?: Maybe<IntQueryOperatorInput>,
   host?: Maybe<StringQueryOperatorInput>,
-  polyfill?: Maybe<BooleanQueryOperatorInput>,
-  pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>
 };
 
@@ -1998,8 +1996,8 @@ export type QuerySitePageArgs = {
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>,
   internalComponentName?: Maybe<StringQueryOperatorInput>,
+  path?: Maybe<StringQueryOperatorInput>,
   component?: Maybe<StringQueryOperatorInput>,
   componentChunkName?: Maybe<StringQueryOperatorInput>,
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>,
@@ -2025,8 +2023,6 @@ export type Site = Node & {
   siteMetadata?: Maybe<SiteSiteMetadata>,
   port?: Maybe<Scalars['Int']>,
   host?: Maybe<Scalars['String']>,
-  polyfill?: Maybe<Scalars['Boolean']>,
-  pathPrefix?: Maybe<Scalars['String']>,
   buildTime?: Maybe<Scalars['Date']>,
 };
 
@@ -2157,8 +2153,6 @@ export type SiteFieldsEnum =
   'siteMetadata___description' |
   'port' |
   'host' |
-  'polyfill' |
-  'pathPrefix' |
   'buildTime';
 
 export type SiteFilterInput = {
@@ -2169,8 +2163,6 @@ export type SiteFilterInput = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
   port?: Maybe<IntQueryOperatorInput>,
   host?: Maybe<StringQueryOperatorInput>,
-  polyfill?: Maybe<BooleanQueryOperatorInput>,
-  pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>,
 };
 
@@ -2188,8 +2180,8 @@ export type SitePage = Node & {
   parent?: Maybe<Node>,
   children: Array<Node>,
   internal: Internal,
-  path?: Maybe<Scalars['String']>,
   internalComponentName?: Maybe<Scalars['String']>,
+  path?: Maybe<Scalars['String']>,
   component?: Maybe<Scalars['String']>,
   componentChunkName?: Maybe<Scalars['String']>,
   isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>,
@@ -2321,8 +2313,8 @@ export type SitePageFieldsEnum =
   'internal___mediaType' |
   'internal___owner' |
   'internal___type' |
-  'path' |
   'internalComponentName' |
+  'path' |
   'component' |
   'componentChunkName' |
   'isCreatedByStatefulCreatePages' |
@@ -2375,6 +2367,10 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___plugins___version' |
   'pluginCreator___pluginOptions___plugins___browserAPIs' |
   'pluginCreator___pluginOptions___plugins___pluginFilepath' |
+  'pluginCreator___pluginOptions___alias____xcomponents' |
+  'pluginCreator___pluginOptions___alias____xtemplates' |
+  'pluginCreator___pluginOptions___alias____types' |
+  'pluginCreator___pluginOptions___extensions' |
   'pluginCreator___pluginOptions___fileName' |
   'pluginCreator___pluginOptions___documentPaths' |
   'pluginCreator___pluginOptions___codegenDelay' |
@@ -2411,8 +2407,8 @@ export type SitePageFilterInput = {
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>,
   internalComponentName?: Maybe<StringQueryOperatorInput>,
+  path?: Maybe<StringQueryOperatorInput>,
   component?: Maybe<StringQueryOperatorInput>,
   componentChunkName?: Maybe<StringQueryOperatorInput>,
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>,
@@ -2579,6 +2575,10 @@ export type SitePluginFieldsEnum =
   'pluginOptions___plugins___pluginOptions___destinationDir' |
   'pluginOptions___plugins___browserAPIs' |
   'pluginOptions___plugins___pluginFilepath' |
+  'pluginOptions___alias____xcomponents' |
+  'pluginOptions___alias____xtemplates' |
+  'pluginOptions___alias____types' |
+  'pluginOptions___extensions' |
   'pluginOptions___fileName' |
   'pluginOptions___documentPaths' |
   'pluginOptions___codegenDelay' |
@@ -2701,6 +2701,8 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>,
+  alias?: Maybe<SitePluginPluginOptionsAlias>,
+  extensions?: Maybe<Array<Maybe<Scalars['String']>>>,
   fileName?: Maybe<Scalars['String']>,
   documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>,
   codegenDelay?: Maybe<Scalars['Int']>,
@@ -2712,8 +2714,22 @@ export type SitePluginPluginOptions = {
   pathCheck?: Maybe<Scalars['Boolean']>,
 };
 
+export type SitePluginPluginOptionsAlias = {
+  _xcomponents?: Maybe<Scalars['String']>,
+  _xtemplates?: Maybe<Scalars['String']>,
+  _types?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsAliasFilterInput = {
+  _xcomponents?: Maybe<StringQueryOperatorInput>,
+  _xtemplates?: Maybe<StringQueryOperatorInput>,
+  _types?: Maybe<StringQueryOperatorInput>,
+};
+
 export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>,
+  alias?: Maybe<SitePluginPluginOptionsAliasFilterInput>,
+  extensions?: Maybe<StringQueryOperatorInput>,
   fileName?: Maybe<StringQueryOperatorInput>,
   documentPaths?: Maybe<StringQueryOperatorInput>,
   codegenDelay?: Maybe<IntQueryOperatorInput>,
@@ -2801,10 +2817,10 @@ export type Unnamed_1_QueryVariables = {};
 
 export type Unnamed_1_Query = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
-export type HomePageTemplateQueryVariables = {};
+export type IndexPageTemplateQueryVariables = {};
 
 
-export type HomePageTemplateQuery = { markdownRemark: Maybe<{ frontmatter: Maybe<(
+export type IndexPageTemplateQuery = { markdownRemark: Maybe<{ frontmatter: Maybe<(
       Pick<MarkdownRemarkFrontmatter, 'title'>
       & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
     )> }> };

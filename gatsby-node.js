@@ -1,6 +1,6 @@
-const path = require("path")
-const { createFilePath } = require("gatsby-source-filesystem")
-const { fmImagesToRelative } = require("gatsby-remark-relative-images")
+const path = require('path')
+const { createFilePath } = require('gatsby-source-filesystem')
+const { fmImagesToRelative } = require('gatsby-remark-relative-images')
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
@@ -33,9 +33,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const id = edge.node.id
     createPage({
       path: edge.node.fields.slug,
-      component: path.resolve(
-        `src/templates/${String(edge.node.frontmatter.templateKey)}.tsx`
-      ),
+      component: path.resolve(`src/templates/${String(edge.node.frontmatter.templateKey)}.tsx`),
       // additional data can be passed via context
       context: {
         id,

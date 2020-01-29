@@ -1,5 +1,6 @@
 import React from 'react'
-import { HomePageTemplate } from '../../templates/index-page'
+
+import { IndexPageTemplate } from '@/components/templates/IndexPageTemplate'
 
 export interface IndexPagePreviewProps {
   entry: {
@@ -11,7 +12,7 @@ const IndexPagePreview: React.FC<IndexPagePreviewProps> = ({ entry }) => {
   const data = entry.getIn(['data']).toJS()
 
   if (data) {
-    return <HomePageTemplate image={data.image} title={data.title} />
+    return <IndexPageTemplate image={data.image} title={data.title} />
   } else {
     return <div>Loading...</div>
   }

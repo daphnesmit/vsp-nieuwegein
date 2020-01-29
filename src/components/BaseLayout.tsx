@@ -1,6 +1,7 @@
 import React from 'react'
-import { createGlobalStyle } from "styled-components"
-// import Footer from '../components/Footer'
+import { createGlobalStyle } from 'styled-components'
+
+// import Footer from '@/components/Footer'
 import Header from './Header'
 import Seo from './Seo'
 
@@ -10,7 +11,7 @@ interface BaseLayoutProps {
 
 const GlobalStyle = createGlobalStyle`
   body {
-    color: ${props => (props.theme === "purple" ? "purple" : "white")};
+    color: ${props => (props.theme === 'purple' ? 'purple' : 'white')};
   }
   `
 

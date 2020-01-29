@@ -1,6 +1,6 @@
+import { graphql, useStaticQuery, withPrefix } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
-import { useStaticQuery, graphql, withPrefix } from 'gatsby'
 
 interface SeoProps {
   description?: string
@@ -95,7 +95,10 @@ const SEO: React.FC<SeoProps> = ({ description, lang = 'nl', meta, title }) => {
       />
 
       <link rel="mask-icon" href={`${withPrefix('/')}img/safari-pinned-tab.svg`} color="#ff4400" />
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      />
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     </Helmet>
   )

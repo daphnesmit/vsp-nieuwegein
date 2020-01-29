@@ -1,5 +1,6 @@
 import React from 'react'
-import { RecentPostTemplate } from '../../templates/recent-post'
+
+import { RecentPostTemplate } from '@/components/templates/RecentPostTemplate'
 
 export interface RecentPostPreviewProps {
   entry: {
@@ -9,13 +10,7 @@ export interface RecentPostPreviewProps {
 }
 
 const RecentPostPreview: React.FC<RecentPostPreviewProps> = ({ entry, widgetFor }) => {
-  return (
-    <RecentPostTemplate
-      content={widgetFor('body')}
-      title={entry.getIn(['data', 'title'])}
-    />
-  )
+  return <RecentPostTemplate content={widgetFor('body')} title={entry.getIn(['data', 'title'])} />
 }
-
 
 export default RecentPostPreview
