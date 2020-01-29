@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import BaseLayout from '../components/BaseLayout'
-import { MarkdownRemark, MarkdownRemarkEdge, MarkdownRemarkFrontmatter } from '@/graphqlTypes'
+import { RecentPageTemplateQuery, MarkdownRemarkFrontmatter } from 'types/graphql-types'
 
 interface Post extends MarkdownRemarkFrontmatter {
   slug: string
@@ -17,8 +17,8 @@ export const RecentPageTemplate: React.FC<RecentPageTemplateProps> = ({ posts, t
   return (
     <div style={{ color: 'white', backgroundColor: 'orange', padding: 10 }}>
       <h1>{title}</h1>
-      {posts.map(post => (
-        <a href={post.slug} style={{ width: '25%', backgroundColor: 'blue', padding: 10 }}>
+      {posts.map((post, i) => (
+        <a key={i} href={post.slug} style={{ width: '25%', backgroundColor: 'blue', padding: 10 }}>
           <h2>{post.title}</h2>
           <p>{post.date}</p>
         </a>
@@ -28,16 +28,11 @@ export const RecentPageTemplate: React.FC<RecentPageTemplateProps> = ({ posts, t
 }
 
 interface RecentPageProps {
-  data: {
-    markdownRemark: MarkdownRemark
-    allMarkdownRemark: {
-      edges: MarkdownRemarkEdge[]
-    }
-  }
+  data: RecentPageTemplateQuery
 }
 
 const RecentPage: React.FC<RecentPageProps> = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+  const { frontmatter } = data.markdownRemark!
   const { edges } = data.allMarkdownRemark
   const posts = edges
     .map(edge => ({
@@ -46,7 +41,6 @@ const RecentPage: React.FC<RecentPageProps> = ({ data }) => {
     }))
     .filter(post => post && post.slug && post.date && post.templateKey === 'recent-post')
 
-  console.log(posts)
   if (!frontmatter?.title) return null
   return (
     <BaseLayout>

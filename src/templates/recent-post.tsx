@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import BaseLayout from '../components/BaseLayout'
 import Content, { ContentProps, HTMLContent } from '../components/Content'
-import { MarkdownRemark } from '@/graphqlTypes'
+import { RecentPostByIdQuery } from 'types/graphql-types'
 
 interface RecentPostTemplateProps {
   content?: string | null
@@ -35,9 +35,7 @@ export const RecentPostTemplate: React.FC<RecentPostTemplateProps> = ({
 }
 
 interface RecentPostProps {
-  data: {
-    markdownRemark: MarkdownRemark
-  }
+  data: RecentPostByIdQuery
 }
 
 const RecentPost: React.FC<RecentPostProps> = ({ data }) => {
