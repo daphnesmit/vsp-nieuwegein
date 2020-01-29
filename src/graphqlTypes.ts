@@ -11,6 +11,15 @@ export type Scalars = {
 };
 
 
+
+
+
+
+
+
+
+
+
 export type BooleanQueryOperatorInput = {
   eq?: Maybe<Scalars['Boolean']>,
   ne?: Maybe<Scalars['Boolean']>,
@@ -683,7 +692,6 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkId = 'childMarkdownRemark___id',
   ChildMarkdownRemarkFrontmatterTitle = 'childMarkdownRemark___frontmatter___title',
   ChildMarkdownRemarkFrontmatterTemplateKey = 'childMarkdownRemark___frontmatter___templateKey',
-  ChildMarkdownRemarkFrontmatterDate = 'childMarkdownRemark___frontmatter___date',
   ChildMarkdownRemarkFrontmatterImageSourceInstanceName = 'childMarkdownRemark___frontmatter___image___sourceInstanceName',
   ChildMarkdownRemarkFrontmatterImageAbsolutePath = 'childMarkdownRemark___frontmatter___image___absolutePath',
   ChildMarkdownRemarkFrontmatterImageRelativePath = 'childMarkdownRemark___frontmatter___image___relativePath',
@@ -720,6 +728,8 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkFrontmatterImagePublicUrl = 'childMarkdownRemark___frontmatter___image___publicURL',
   ChildMarkdownRemarkFrontmatterImageId = 'childMarkdownRemark___frontmatter___image___id',
   ChildMarkdownRemarkFrontmatterImageChildren = 'childMarkdownRemark___frontmatter___image___children',
+  ChildMarkdownRemarkFrontmatterDate = 'childMarkdownRemark___frontmatter___date',
+  ChildMarkdownRemarkFrontmatterDescription = 'childMarkdownRemark___frontmatter___description',
   ChildMarkdownRemarkExcerpt = 'childMarkdownRemark___excerpt',
   ChildMarkdownRemarkRawMarkdownBody = 'childMarkdownRemark___rawMarkdownBody',
   ChildMarkdownRemarkFileAbsolutePath = 'childMarkdownRemark___fileAbsolutePath',
@@ -1508,7 +1518,6 @@ export enum MarkdownRemarkFieldsEnum {
   Id = 'id',
   FrontmatterTitle = 'frontmatter___title',
   FrontmatterTemplateKey = 'frontmatter___templateKey',
-  FrontmatterDate = 'frontmatter___date',
   FrontmatterImageSourceInstanceName = 'frontmatter___image___sourceInstanceName',
   FrontmatterImageAbsolutePath = 'frontmatter___image___absolutePath',
   FrontmatterImageRelativePath = 'frontmatter___image___relativePath',
@@ -1570,6 +1579,8 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterImageChildMarkdownRemarkTimeToRead = 'frontmatter___image___childMarkdownRemark___timeToRead',
   FrontmatterImageChildMarkdownRemarkTableOfContents = 'frontmatter___image___childMarkdownRemark___tableOfContents',
   FrontmatterImageChildMarkdownRemarkChildren = 'frontmatter___image___childMarkdownRemark___children',
+  FrontmatterDate = 'frontmatter___date',
+  FrontmatterDescription = 'frontmatter___description',
   Excerpt = 'excerpt',
   RawMarkdownBody = 'rawMarkdownBody',
   FileAbsolutePath = 'fileAbsolutePath',
@@ -1699,8 +1710,9 @@ export type MarkdownRemarkFrontmatter = {
    __typename?: 'MarkdownRemarkFrontmatter',
   title?: Maybe<Scalars['String']>,
   templateKey?: Maybe<Scalars['String']>,
-  date?: Maybe<Scalars['Date']>,
   image?: Maybe<File>,
+  date?: Maybe<Scalars['Date']>,
+  description?: Maybe<Scalars['String']>,
 };
 
 
@@ -1714,8 +1726,9 @@ export type MarkdownRemarkFrontmatterDateArgs = {
 export type MarkdownRemarkFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>,
   templateKey?: Maybe<StringQueryOperatorInput>,
-  date?: Maybe<DateQueryOperatorInput>,
   image?: Maybe<FileFilterInput>,
+  date?: Maybe<DateQueryOperatorInput>,
+  description?: Maybe<StringQueryOperatorInput>,
 };
 
 export type MarkdownRemarkGroupConnection = {
@@ -2017,8 +2030,8 @@ export type QuerySitePageArgs = {
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>,
   internalComponentName?: Maybe<StringQueryOperatorInput>,
+  path?: Maybe<StringQueryOperatorInput>,
   component?: Maybe<StringQueryOperatorInput>,
   componentChunkName?: Maybe<StringQueryOperatorInput>,
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>,
@@ -2213,8 +2226,8 @@ export type SitePage = Node & {
   parent?: Maybe<Node>,
   children: Array<Node>,
   internal: Internal,
-  path?: Maybe<Scalars['String']>,
   internalComponentName?: Maybe<Scalars['String']>,
+  path?: Maybe<Scalars['String']>,
   component?: Maybe<Scalars['String']>,
   componentChunkName?: Maybe<Scalars['String']>,
   isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>,
@@ -2349,8 +2362,8 @@ export enum SitePageFieldsEnum {
   InternalMediaType = 'internal___mediaType',
   InternalOwner = 'internal___owner',
   InternalType = 'internal___type',
-  Path = 'path',
   InternalComponentName = 'internalComponentName',
+  Path = 'path',
   Component = 'component',
   ComponentChunkName = 'componentChunkName',
   IsCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
@@ -2449,8 +2462,8 @@ export type SitePageFilterInput = {
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>,
   internalComponentName?: Maybe<StringQueryOperatorInput>,
+  path?: Maybe<StringQueryOperatorInput>,
   component?: Maybe<StringQueryOperatorInput>,
   componentChunkName?: Maybe<StringQueryOperatorInput>,
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>,
@@ -3109,7 +3122,7 @@ export type RecentPostByIdQuery = (
     & Pick<MarkdownRemark, 'id' | 'html'>
     & { frontmatter: Maybe<(
       { __typename?: 'MarkdownRemarkFrontmatter' }
-      & Pick<MarkdownRemarkFrontmatter, 'date' | 'title'>
+      & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'description'>
     )> }
   )> }
 );

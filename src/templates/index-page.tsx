@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import BaseLayout from '../components/BaseLayout'
 import Button from '@material-ui/core/Button'
+import { MarkdownRemark } from '@/graphqlTypes'
 
 const StyledButton = styled(Button)`
   background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
@@ -30,6 +31,7 @@ const Container = styled.div`
 `
 
 export const HomePageTemplate: React.FC<HomePageTemplateProps> = ({ title, image }) => {
+  if (!image) return null
   return (
     <Container
       style={{
@@ -54,17 +56,15 @@ export const HomePageTemplate: React.FC<HomePageTemplateProps> = ({ title, image
 
 interface HomePageProps {
   data: {
-    markdownRemark: {
-      frontmatter: {
-        title: string
-        image: any
-      }
-    }
+    markdownRemark: MarkdownRemark
   }
 }
 
 const HomePage: React.FC<HomePageProps> = ({ data }) => {
   const { frontmatter } = data.markdownRemark
+
+  console.log(data)
+  if (!frontmatter?.title) return null
 
   return (
     <BaseLayout>

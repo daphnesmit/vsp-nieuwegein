@@ -12,7 +12,6 @@ const RecentPostPreview: React.FC<RecentPostPreviewProps> = ({ entry, widgetFor 
   return (
     <RecentPostTemplate
       content={widgetFor('body')}
-      description={entry.getIn(['data', 'description'])}
       title={entry.getIn(['data', 'title'])}
     />
   )

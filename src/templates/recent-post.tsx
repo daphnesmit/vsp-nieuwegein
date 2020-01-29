@@ -3,11 +3,12 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import BaseLayout from '../components/BaseLayout'
 import Content, { ContentProps, HTMLContent } from '../components/Content'
+import { MarkdownRemark } from '@/graphqlTypes'
 
 interface RecentPostTemplateProps {
-  content: string
+  content?: string | null
   contentComponent?: React.FC<ContentProps>
-  description: string
+  description?: string | null
   title: string
   helmet?: any
 }
@@ -26,8 +27,8 @@ export const RecentPostTemplate: React.FC<RecentPostTemplateProps> = ({
       {helmet || ''}
       <div>
         <h1>{title}</h1>
-        <p>{description}</p>
-        <PostContent content={content} />
+        {description && <p>{description}</p>}
+        {content && <PostContent content={content} />}
       </div>
     </section>
   )
@@ -35,13 +36,14 @@ export const RecentPostTemplate: React.FC<RecentPostTemplateProps> = ({
 
 interface RecentPostProps {
   data: {
-    markdownRemark: any
+    markdownRemark: MarkdownRemark
   }
 }
 
 const RecentPost: React.FC<RecentPostProps> = ({ data }) => {
   const { markdownRemark: post } = data
 
+  if (!post?.frontmatter?.title) return null
   return (
     <BaseLayout>
       <RecentPostTemplate
@@ -70,6 +72,7 @@ export const pageQuery = graphql`
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
+        description
       }
     }
   }

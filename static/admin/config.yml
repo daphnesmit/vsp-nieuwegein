@@ -20,7 +20,8 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: Template Key, name: templateKey, widget: hidden, default: recent-post }
-      - { label: Title, name: title, widget: string }
+      - { label: Title, name: title, widget: string,  required: true}
+      - { label: Description, name: description, widget: string }
       - { label: Publish Date, name: date, widget: datetime }
       - { label: Body, name: body, widget: markdown }
   - name: pages
@@ -31,7 +32,7 @@ collections:
         name: index
         fields:
           - { label: Template Key, name: templateKey, widget: hidden, default: index-page }
-          - { label: Title, name: title, widget: string }
+          - { label: Title, name: title, widget: string, required: true }
           - { label: Description, name: description, widget: text }
           - { label: Image, name: image, widget: image }
       - file: src/pages/recent/index.md
@@ -39,5 +40,6 @@ collections:
         name: recent
         fields:
           - { label: Template Key, name: templateKey, widget: hidden, default: recent-page }
-          - { label: Title, name: title, widget: string }
+          - { label: Title, name: title, widget: string,  required: true }
+          - { label: Description, name: description, widget: string }
           - { label: Body, name: body, widget: markdown }

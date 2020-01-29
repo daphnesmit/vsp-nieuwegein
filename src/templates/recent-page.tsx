@@ -2,11 +2,10 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import BaseLayout from '../components/BaseLayout'
+import { MarkdownRemark, MarkdownRemarkEdge, MarkdownRemarkFrontmatter } from '@/graphqlTypes'
 
-interface Post {
-  title: string
-  date: string
-  templateKey: string
+interface Post extends MarkdownRemarkFrontmatter {
+  slug: string
 }
 
 interface RecentPageTemplateProps {
@@ -14,15 +13,15 @@ interface RecentPageTemplateProps {
   posts: Post[]
 }
 
-export const RecentPageTemplate: React.FC<RecentPageTemplateProps> = ({ title, posts }) => {
+export const RecentPageTemplate: React.FC<RecentPageTemplateProps> = ({ posts, title }) => {
   return (
-    <div style={{ backgroundColor: 'orange', padding: 10 }}>
+    <div style={{ color: 'white', backgroundColor: 'orange', padding: 10 }}>
       <h1>{title}</h1>
       {posts.map(post => (
-        <div style={{ width: '25%', backgroundColor: 'blue', padding: 10 }}>
+        <a href={post.slug} style={{ width: '25%', backgroundColor: 'blue', padding: 10 }}>
           <h2>{post.title}</h2>
           <p>{post.date}</p>
-        </div>
+        </a>
       ))}
     </div>
   )
@@ -30,14 +29,9 @@ export const RecentPageTemplate: React.FC<RecentPageTemplateProps> = ({ title, p
 
 interface RecentPageProps {
   data: {
-    markdownRemark: {
-      frontmatter: {
-        title: string
-        image: any
-      }
-    }
+    markdownRemark: MarkdownRemark
     allMarkdownRemark: {
-      edges: any[]
+      edges: MarkdownRemarkEdge[]
     }
   }
 }
@@ -46,10 +40,14 @@ const RecentPage: React.FC<RecentPageProps> = ({ data }) => {
   const { frontmatter } = data.markdownRemark
   const { edges } = data.allMarkdownRemark
   const posts = edges
-    .filter(
-      edge => !!edge.node.frontmatter.date && edge.node.frontmatter.templateKey === 'recent-post',
-    )
-    .map(edge => edge.node.frontmatter)
+    .map(edge => ({
+      ...{ ...(edge.node.frontmatter || {}) },
+      slug: edge.node.fields?.slug || '',
+    }))
+    .filter(post => post && post.slug && post.date && post.templateKey === 'recent-post')
+
+  console.log(posts)
+  if (!frontmatter?.title) return null
   return (
     <BaseLayout>
       <RecentPageTemplate title={frontmatter.title} posts={posts} />
@@ -66,11 +64,17 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { frontmatter: { templateKey: { eq: "recent-post" } } }
+    ) {
       edges {
         node {
           id
           excerpt(pruneLength: 250)
+          fields {
+            slug
+          }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title

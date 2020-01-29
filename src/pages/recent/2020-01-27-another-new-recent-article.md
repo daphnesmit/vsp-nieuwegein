@@ -1,6 +1,7 @@
 ---
 templateKey: recent-post
 title: Another new recent article
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 date: 2020-01-27T19:36:50.730Z
 ---
 * Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec diam tincidunt, condimentum nibh et, fermentum orci.
