@@ -15,6 +15,7 @@ const RecentPost: React.FC<RecentPostProps> = ({ data }) => {
   const { markdownRemark: post } = data
 
   if (!post?.frontmatter?.title) return null
+  
   return (
     <BaseLayout>
       <RecentPostTemplate

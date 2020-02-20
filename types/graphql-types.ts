@@ -691,6 +691,7 @@ export type FileFieldsEnum =
   'childMarkdownRemark___frontmatter___title' |
   'childMarkdownRemark___frontmatter___templateKey' |
   'childMarkdownRemark___frontmatter___description' |
+  'childMarkdownRemark___frontmatter___date' |
   'childMarkdownRemark___frontmatter___image___sourceInstanceName' |
   'childMarkdownRemark___frontmatter___image___absolutePath' |
   'childMarkdownRemark___frontmatter___image___relativePath' |
@@ -727,7 +728,6 @@ export type FileFieldsEnum =
   'childMarkdownRemark___frontmatter___image___publicURL' |
   'childMarkdownRemark___frontmatter___image___id' |
   'childMarkdownRemark___frontmatter___image___children' |
-  'childMarkdownRemark___frontmatter___date' |
   'childMarkdownRemark___excerpt' |
   'childMarkdownRemark___rawMarkdownBody' |
   'childMarkdownRemark___fileAbsolutePath' |
@@ -1493,6 +1493,7 @@ export type MarkdownRemarkFieldsEnum =
   'frontmatter___title' |
   'frontmatter___templateKey' |
   'frontmatter___description' |
+  'frontmatter___date' |
   'frontmatter___image___sourceInstanceName' |
   'frontmatter___image___absolutePath' |
   'frontmatter___image___relativePath' |
@@ -1554,7 +1555,6 @@ export type MarkdownRemarkFieldsEnum =
   'frontmatter___image___childMarkdownRemark___timeToRead' |
   'frontmatter___image___childMarkdownRemark___tableOfContents' |
   'frontmatter___image___childMarkdownRemark___children' |
-  'frontmatter___date' |
   'excerpt' |
   'rawMarkdownBody' |
   'fileAbsolutePath' |
@@ -1683,8 +1683,8 @@ export type MarkdownRemarkFrontmatter = {
   title?: Maybe<Scalars['String']>,
   templateKey?: Maybe<Scalars['String']>,
   description?: Maybe<Scalars['String']>,
-  image?: Maybe<File>,
   date?: Maybe<Scalars['Date']>,
+  image?: Maybe<File>,
 };
 
 
@@ -1699,8 +1699,8 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>,
   templateKey?: Maybe<StringQueryOperatorInput>,
   description?: Maybe<StringQueryOperatorInput>,
-  image?: Maybe<FileFilterInput>,
   date?: Maybe<DateQueryOperatorInput>,
+  image?: Maybe<FileFilterInput>,
 };
 
 export type MarkdownRemarkGroupConnection = {
@@ -1954,6 +1954,8 @@ export type QuerySiteArgs = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
   port?: Maybe<IntQueryOperatorInput>,
   host?: Maybe<StringQueryOperatorInput>,
+  polyfill?: Maybe<BooleanQueryOperatorInput>,
+  pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>
 };
 
@@ -1996,8 +1998,8 @@ export type QuerySitePageArgs = {
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
-  internalComponentName?: Maybe<StringQueryOperatorInput>,
   path?: Maybe<StringQueryOperatorInput>,
+  internalComponentName?: Maybe<StringQueryOperatorInput>,
   component?: Maybe<StringQueryOperatorInput>,
   componentChunkName?: Maybe<StringQueryOperatorInput>,
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>,
@@ -2023,6 +2025,8 @@ export type Site = Node & {
   siteMetadata?: Maybe<SiteSiteMetadata>,
   port?: Maybe<Scalars['Int']>,
   host?: Maybe<Scalars['String']>,
+  polyfill?: Maybe<Scalars['Boolean']>,
+  pathPrefix?: Maybe<Scalars['String']>,
   buildTime?: Maybe<Scalars['Date']>,
 };
 
@@ -2153,6 +2157,8 @@ export type SiteFieldsEnum =
   'siteMetadata___description' |
   'port' |
   'host' |
+  'polyfill' |
+  'pathPrefix' |
   'buildTime';
 
 export type SiteFilterInput = {
@@ -2163,6 +2169,8 @@ export type SiteFilterInput = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
   port?: Maybe<IntQueryOperatorInput>,
   host?: Maybe<StringQueryOperatorInput>,
+  polyfill?: Maybe<BooleanQueryOperatorInput>,
+  pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>,
 };
 
@@ -2180,8 +2188,8 @@ export type SitePage = Node & {
   parent?: Maybe<Node>,
   children: Array<Node>,
   internal: Internal,
-  internalComponentName?: Maybe<Scalars['String']>,
   path?: Maybe<Scalars['String']>,
+  internalComponentName?: Maybe<Scalars['String']>,
   component?: Maybe<Scalars['String']>,
   componentChunkName?: Maybe<Scalars['String']>,
   isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>,
@@ -2313,8 +2321,8 @@ export type SitePageFieldsEnum =
   'internal___mediaType' |
   'internal___owner' |
   'internal___type' |
-  'internalComponentName' |
   'path' |
+  'internalComponentName' |
   'component' |
   'componentChunkName' |
   'isCreatedByStatefulCreatePages' |
@@ -2369,7 +2377,6 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___plugins___pluginFilepath' |
   'pluginCreator___pluginOptions___alias____xcomponents' |
   'pluginCreator___pluginOptions___alias____xtemplates' |
-  'pluginCreator___pluginOptions___alias____types' |
   'pluginCreator___pluginOptions___extensions' |
   'pluginCreator___pluginOptions___fileName' |
   'pluginCreator___pluginOptions___documentPaths' |
@@ -2378,7 +2385,19 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___path' |
   'pluginCreator___pluginOptions___name' |
   'pluginCreator___pluginOptions___maxWidth' |
+  'pluginCreator___pluginOptions___pathPrefix' |
+  'pluginCreator___pluginOptions___wrapperStyle' |
+  'pluginCreator___pluginOptions___backgroundColor' |
+  'pluginCreator___pluginOptions___linkImagesToOriginal' |
+  'pluginCreator___pluginOptions___showCaptions' |
+  'pluginCreator___pluginOptions___markdownCaptions' |
+  'pluginCreator___pluginOptions___withWebp' |
+  'pluginCreator___pluginOptions___tracedSVG' |
+  'pluginCreator___pluginOptions___loading' |
+  'pluginCreator___pluginOptions___disableBgImageOnAlpha' |
+  'pluginCreator___pluginOptions___disableBgImage' |
   'pluginCreator___pluginOptions___destinationDir' |
+  'pluginCreator___pluginOptions___ignoreFileExtensions' |
   'pluginCreator___pluginOptions___pathCheck' |
   'pluginCreator___nodeAPIs' |
   'pluginCreator___browserAPIs' |
@@ -2407,8 +2426,8 @@ export type SitePageFilterInput = {
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
-  internalComponentName?: Maybe<StringQueryOperatorInput>,
   path?: Maybe<StringQueryOperatorInput>,
+  internalComponentName?: Maybe<StringQueryOperatorInput>,
   component?: Maybe<StringQueryOperatorInput>,
   componentChunkName?: Maybe<StringQueryOperatorInput>,
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>,
@@ -2572,12 +2591,23 @@ export type SitePluginFieldsEnum =
   'pluginOptions___plugins___version' |
   'pluginOptions___plugins___pluginOptions___name' |
   'pluginOptions___plugins___pluginOptions___maxWidth' |
+  'pluginOptions___plugins___pluginOptions___pathPrefix' |
+  'pluginOptions___plugins___pluginOptions___wrapperStyle' |
+  'pluginOptions___plugins___pluginOptions___backgroundColor' |
+  'pluginOptions___plugins___pluginOptions___linkImagesToOriginal' |
+  'pluginOptions___plugins___pluginOptions___showCaptions' |
+  'pluginOptions___plugins___pluginOptions___markdownCaptions' |
+  'pluginOptions___plugins___pluginOptions___withWebp' |
+  'pluginOptions___plugins___pluginOptions___tracedSVG' |
+  'pluginOptions___plugins___pluginOptions___loading' |
+  'pluginOptions___plugins___pluginOptions___disableBgImageOnAlpha' |
+  'pluginOptions___plugins___pluginOptions___disableBgImage' |
   'pluginOptions___plugins___pluginOptions___destinationDir' |
+  'pluginOptions___plugins___pluginOptions___ignoreFileExtensions' |
   'pluginOptions___plugins___browserAPIs' |
   'pluginOptions___plugins___pluginFilepath' |
   'pluginOptions___alias____xcomponents' |
   'pluginOptions___alias____xtemplates' |
-  'pluginOptions___alias____types' |
   'pluginOptions___extensions' |
   'pluginOptions___fileName' |
   'pluginOptions___documentPaths' |
@@ -2586,7 +2616,19 @@ export type SitePluginFieldsEnum =
   'pluginOptions___path' |
   'pluginOptions___name' |
   'pluginOptions___maxWidth' |
+  'pluginOptions___pathPrefix' |
+  'pluginOptions___wrapperStyle' |
+  'pluginOptions___backgroundColor' |
+  'pluginOptions___linkImagesToOriginal' |
+  'pluginOptions___showCaptions' |
+  'pluginOptions___markdownCaptions' |
+  'pluginOptions___withWebp' |
+  'pluginOptions___tracedSVG' |
+  'pluginOptions___loading' |
+  'pluginOptions___disableBgImageOnAlpha' |
+  'pluginOptions___disableBgImage' |
   'pluginOptions___destinationDir' |
+  'pluginOptions___ignoreFileExtensions' |
   'pluginOptions___pathCheck' |
   'nodeAPIs' |
   'browserAPIs' |
@@ -2710,20 +2752,30 @@ export type SitePluginPluginOptions = {
   path?: Maybe<Scalars['String']>,
   name?: Maybe<Scalars['String']>,
   maxWidth?: Maybe<Scalars['Int']>,
+  pathPrefix?: Maybe<Scalars['String']>,
+  wrapperStyle?: Maybe<Scalars['String']>,
+  backgroundColor?: Maybe<Scalars['String']>,
+  linkImagesToOriginal?: Maybe<Scalars['Boolean']>,
+  showCaptions?: Maybe<Scalars['Boolean']>,
+  markdownCaptions?: Maybe<Scalars['Boolean']>,
+  withWebp?: Maybe<Scalars['Boolean']>,
+  tracedSVG?: Maybe<Scalars['Boolean']>,
+  loading?: Maybe<Scalars['String']>,
+  disableBgImageOnAlpha?: Maybe<Scalars['Boolean']>,
+  disableBgImage?: Maybe<Scalars['Boolean']>,
   destinationDir?: Maybe<Scalars['String']>,
+  ignoreFileExtensions?: Maybe<Array<Maybe<Scalars['String']>>>,
   pathCheck?: Maybe<Scalars['Boolean']>,
 };
 
 export type SitePluginPluginOptionsAlias = {
   _xcomponents?: Maybe<Scalars['String']>,
   _xtemplates?: Maybe<Scalars['String']>,
-  _types?: Maybe<Scalars['String']>,
 };
 
 export type SitePluginPluginOptionsAliasFilterInput = {
   _xcomponents?: Maybe<StringQueryOperatorInput>,
   _xtemplates?: Maybe<StringQueryOperatorInput>,
-  _types?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SitePluginPluginOptionsFilterInput = {
@@ -2737,7 +2789,19 @@ export type SitePluginPluginOptionsFilterInput = {
   path?: Maybe<StringQueryOperatorInput>,
   name?: Maybe<StringQueryOperatorInput>,
   maxWidth?: Maybe<IntQueryOperatorInput>,
+  pathPrefix?: Maybe<StringQueryOperatorInput>,
+  wrapperStyle?: Maybe<StringQueryOperatorInput>,
+  backgroundColor?: Maybe<StringQueryOperatorInput>,
+  linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>,
+  showCaptions?: Maybe<BooleanQueryOperatorInput>,
+  markdownCaptions?: Maybe<BooleanQueryOperatorInput>,
+  withWebp?: Maybe<BooleanQueryOperatorInput>,
+  tracedSVG?: Maybe<BooleanQueryOperatorInput>,
+  loading?: Maybe<StringQueryOperatorInput>,
+  disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>,
+  disableBgImage?: Maybe<BooleanQueryOperatorInput>,
   destinationDir?: Maybe<StringQueryOperatorInput>,
+  ignoreFileExtensions?: Maybe<StringQueryOperatorInput>,
   pathCheck?: Maybe<BooleanQueryOperatorInput>,
 };
 
@@ -2768,13 +2832,37 @@ export type SitePluginPluginOptionsPluginsFilterListInput = {
 export type SitePluginPluginOptionsPluginsPluginOptions = {
   name?: Maybe<Scalars['String']>,
   maxWidth?: Maybe<Scalars['Int']>,
+  pathPrefix?: Maybe<Scalars['String']>,
+  wrapperStyle?: Maybe<Scalars['String']>,
+  backgroundColor?: Maybe<Scalars['String']>,
+  linkImagesToOriginal?: Maybe<Scalars['Boolean']>,
+  showCaptions?: Maybe<Scalars['Boolean']>,
+  markdownCaptions?: Maybe<Scalars['Boolean']>,
+  withWebp?: Maybe<Scalars['Boolean']>,
+  tracedSVG?: Maybe<Scalars['Boolean']>,
+  loading?: Maybe<Scalars['String']>,
+  disableBgImageOnAlpha?: Maybe<Scalars['Boolean']>,
+  disableBgImage?: Maybe<Scalars['Boolean']>,
   destinationDir?: Maybe<Scalars['String']>,
+  ignoreFileExtensions?: Maybe<Array<Maybe<Scalars['String']>>>,
 };
 
 export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   name?: Maybe<StringQueryOperatorInput>,
   maxWidth?: Maybe<IntQueryOperatorInput>,
+  pathPrefix?: Maybe<StringQueryOperatorInput>,
+  wrapperStyle?: Maybe<StringQueryOperatorInput>,
+  backgroundColor?: Maybe<StringQueryOperatorInput>,
+  linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>,
+  showCaptions?: Maybe<BooleanQueryOperatorInput>,
+  markdownCaptions?: Maybe<BooleanQueryOperatorInput>,
+  withWebp?: Maybe<BooleanQueryOperatorInput>,
+  tracedSVG?: Maybe<BooleanQueryOperatorInput>,
+  loading?: Maybe<StringQueryOperatorInput>,
+  disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>,
+  disableBgImage?: Maybe<BooleanQueryOperatorInput>,
   destinationDir?: Maybe<StringQueryOperatorInput>,
+  ignoreFileExtensions?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SitePluginSortInput = {
