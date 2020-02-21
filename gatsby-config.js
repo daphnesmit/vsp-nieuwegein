@@ -22,6 +22,7 @@ module.exports = {
         alias: {
           '@/components': path.resolve(__dirname, 'src/components'),
           '@/templates': path.resolve(__dirname, 'src/templates'),
+          '@/theme': path.resolve(__dirname, 'src/theme'),
         },
         extensions: ['tsx', 'ts', 'js'],
       },
@@ -46,6 +47,13 @@ module.exports = {
       options: {
         path: `${__dirname}/static/img`,
         name: 'uploads',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'fonts',
+        path: `${__dirname}/static/fonts/`,
       },
     },
     {

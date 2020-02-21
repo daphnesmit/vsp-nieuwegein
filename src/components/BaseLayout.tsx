@@ -1,29 +1,28 @@
 import React from 'react'
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
 
 // import Footer from '@/components/Footer'
 import Header from './Header'
 import Seo from './Seo'
+import { HeadFontFace } from './HeadFontFace'
+import { GlobalStyle } from '../theme/GlobalStyle'
+import { theme } from '../theme/theme'
 
 interface BaseLayoutProps {
   title?: string
 }
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    color: ${props => (props.theme === 'purple' ? 'purple' : 'white')};
-  }
-  `
 
 const BaseLayout: React.FC<BaseLayoutProps> = ({ title, children }) => {
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <Seo title={title} />
-      <GlobalStyle theme="purple" />
+      <HeadFontFace />
+      <GlobalStyle />
       <Header />
       <div>{children}</div>
       {/* <Footer /> */}
-    </div>
+    </ThemeProvider>
   )
 }
 

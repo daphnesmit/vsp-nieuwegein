@@ -1,6 +1,7 @@
 import Button from '@material-ui/core/Button'
 import React from 'react'
 import styled from 'styled-components'
+import Hero from '../Hero'
 
 const StyledButton = styled(Button)`
   background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
@@ -30,7 +31,9 @@ export const IndexPageTemplate: React.FC<IndexPageTemplateProps> = ({ title, ima
   if (!image) return null
 
   return (
-    <Container
+    <>
+    <Hero/>
+    {/* <Container
       style={{
         backgroundImage: `url(${
           !!image.childImageSharp ? image.childImageSharp.fluid.src : image
@@ -47,6 +50,7 @@ export const IndexPageTemplate: React.FC<IndexPageTemplateProps> = ({ title, ima
         {title}
         <StyledButton>Styled Components</StyledButton>
       </h1>
-    </Container>
+    </Container> */}
+    </>
   )
 }

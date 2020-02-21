@@ -1,22 +1,24 @@
 import React from 'react'
-// import styled from 'styled-components'
+import styled from 'styled-components'
 import Box from '@material-ui/core/Box'
+import Container from '@material-ui/core/Container'
 // import Icon from '../Icon'
 // import Icon from '../Icon'
-// const Nav = styled.nav`
-//   position: fixed;
-//   width: 100%;
-//   top:0;
-//   TopNav
-// `
+const TopNavContainer = styled(Box)`
+  height: 46px;
+  display: flex;
+  align-items: center;
+`
 
-import PhoneIcon from '@material-ui/icons/Phone';
-import PhoneIconOutlined from '@material-ui/icons/PhoneOutlined';
+import PhoneIcon from '@material-ui/icons/Phone'
+import PhoneIconOutlined from '@material-ui/icons/PhoneOutlined'
 const TopNav: React.FC = () => (
-  <Box>
-    <PhoneIcon color="primary" />
-    <PhoneIconOutlined color="primary" />
-  </Box>
+  <Container maxWidth="lg">
+    <TopNavContainer>
+      <PhoneIcon color="primary" />
+      <PhoneIconOutlined color="primary" />
+    </TopNavContainer>
+  </Container>
 )
 
 export default TopNav
