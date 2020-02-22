@@ -11,13 +11,13 @@ const zoomInAnimation = keyframes`
 		opacity: 1
 	}
 `
+
 const zoomIn = keyframes`
   0% {
     opacity:0;
-    transform:scale3d(.3,.3,.3)}
   }
   50% {
-    opacity:1
+    opacity:0;
   }
 `
 const ZoomInAnimationContainer = styled(Box)<ZoomInAnimationProps>`
