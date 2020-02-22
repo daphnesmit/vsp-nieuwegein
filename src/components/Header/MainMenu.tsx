@@ -20,6 +20,7 @@ const ListItemLink = styled(props => <Link activeClassName="is--active" {...prop
   color: ${({ theme }) => theme.colors.white};
   padding: 20px 15px;
   position: relative;
+  white-space: nowrap;
 
   &:before,
   &:after {
