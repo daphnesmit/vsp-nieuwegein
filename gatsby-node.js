@@ -21,6 +21,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       }
     }
   `)
+  console.log(result)
   // Handle errors
   if (result.errors) {
     result.errors.forEach(e => console.error(e.toString()))

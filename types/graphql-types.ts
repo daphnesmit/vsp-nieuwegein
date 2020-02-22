@@ -691,6 +691,7 @@ export type FileFieldsEnum =
   'childMarkdownRemark___frontmatter___title' |
   'childMarkdownRemark___frontmatter___templateKey' |
   'childMarkdownRemark___frontmatter___description' |
+  'childMarkdownRemark___frontmatter___date' |
   'childMarkdownRemark___frontmatter___image___sourceInstanceName' |
   'childMarkdownRemark___frontmatter___image___absolutePath' |
   'childMarkdownRemark___frontmatter___image___relativePath' |
@@ -727,7 +728,6 @@ export type FileFieldsEnum =
   'childMarkdownRemark___frontmatter___image___publicURL' |
   'childMarkdownRemark___frontmatter___image___id' |
   'childMarkdownRemark___frontmatter___image___children' |
-  'childMarkdownRemark___frontmatter___date' |
   'childMarkdownRemark___excerpt' |
   'childMarkdownRemark___rawMarkdownBody' |
   'childMarkdownRemark___fileAbsolutePath' |
@@ -1493,6 +1493,7 @@ export type MarkdownRemarkFieldsEnum =
   'frontmatter___title' |
   'frontmatter___templateKey' |
   'frontmatter___description' |
+  'frontmatter___date' |
   'frontmatter___image___sourceInstanceName' |
   'frontmatter___image___absolutePath' |
   'frontmatter___image___relativePath' |
@@ -1554,7 +1555,6 @@ export type MarkdownRemarkFieldsEnum =
   'frontmatter___image___childMarkdownRemark___timeToRead' |
   'frontmatter___image___childMarkdownRemark___tableOfContents' |
   'frontmatter___image___childMarkdownRemark___children' |
-  'frontmatter___date' |
   'excerpt' |
   'rawMarkdownBody' |
   'fileAbsolutePath' |
@@ -1683,8 +1683,8 @@ export type MarkdownRemarkFrontmatter = {
   title?: Maybe<Scalars['String']>,
   templateKey?: Maybe<Scalars['String']>,
   description?: Maybe<Scalars['String']>,
-  image?: Maybe<File>,
   date?: Maybe<Scalars['Date']>,
+  image?: Maybe<File>,
 };
 
 
@@ -1699,8 +1699,8 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>,
   templateKey?: Maybe<StringQueryOperatorInput>,
   description?: Maybe<StringQueryOperatorInput>,
-  image?: Maybe<FileFilterInput>,
   date?: Maybe<DateQueryOperatorInput>,
+  image?: Maybe<FileFilterInput>,
 };
 
 export type MarkdownRemarkGroupConnection = {
@@ -1952,8 +1952,6 @@ export type QuerySiteArgs = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
-  port?: Maybe<IntQueryOperatorInput>,
-  host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>
@@ -2023,8 +2021,6 @@ export type Site = Node & {
   children: Array<Node>,
   internal: Internal,
   siteMetadata?: Maybe<SiteSiteMetadata>,
-  port?: Maybe<Scalars['Int']>,
-  host?: Maybe<Scalars['String']>,
   polyfill?: Maybe<Scalars['Boolean']>,
   pathPrefix?: Maybe<Scalars['String']>,
   buildTime?: Maybe<Scalars['Date']>,
@@ -2155,8 +2151,6 @@ export type SiteFieldsEnum =
   'siteMetadata___author' |
   'siteMetadata___title' |
   'siteMetadata___description' |
-  'port' |
-  'host' |
   'polyfill' |
   'pathPrefix' |
   'buildTime';
@@ -2167,8 +2161,6 @@ export type SiteFilterInput = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
-  port?: Maybe<IntQueryOperatorInput>,
-  host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>,

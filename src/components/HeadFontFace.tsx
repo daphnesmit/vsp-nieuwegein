@@ -9,6 +9,7 @@ export const HeadFontFace = () => (
             url('NeuzeitGro-Bla.woff') format('woff');
         font-weight: 900;
         font-style: normal;
+        font-display: swap;
     }
     
     @font-face {
@@ -17,6 +18,7 @@ export const HeadFontFace = () => (
             url('NeuzeitGro-Reg.woff') format('woff');
         font-weight: normal;
         font-style: normal;
+        font-display: swap;
     }
     
     @font-face {
@@ -25,6 +27,7 @@ export const HeadFontFace = () => (
             url('NeuzeitGro-Bol.woff') format('woff');
         font-weight: bold;
         font-style: normal;
+        font-display: swap;
     }
     
     @font-face {
@@ -33,6 +36,7 @@ export const HeadFontFace = () => (
             url('NeuzeitGro-Lig.woff') format('woff');
         font-weight: 300;
         font-style: normal;
+        font-display: swap;
     }
     
     `}
