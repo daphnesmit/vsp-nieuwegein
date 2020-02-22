@@ -1,6 +1,6 @@
 ---
 templateKey: recent-page
 title: Recent Page
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
 ---
-
+This is a body text
