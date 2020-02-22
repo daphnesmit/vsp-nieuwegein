@@ -3,12 +3,14 @@ import { SvgIconProps } from '@material-ui/core/SvgIcon'
 import Box from '@material-ui/core/Box'
 import styled, { css } from 'styled-components'
 
-import { Phone } from './icons'
+import { Conference, Phone, Speech } from './icons'
 
 export type IconOption = keyof typeof icons
 
 export const icons = {
+  Conference,
   Phone,
+  Speech,
 }
 interface IconOwnProps {
   icon: IconOption

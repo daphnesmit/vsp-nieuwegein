@@ -27,13 +27,15 @@ export const IndexPageTemplate: React.FC<IndexPageTemplateProps> = ({ title, ima
       title: 'Duurzaamheid, Luchtkwaliteit, Groen en Geluid',
       description:
         'Aandacht voor o.a. klimaatadaptatie, het klimaatakkoord van Parijs, verminderen van geluid, CO2-uitstoot, (giftige) fossiele brandstoffen, fijn stof en stikstofdioxide worden ook op plaatselijk niveau steeds belangrijker.',
-      icon: 'Phone' as IconOption,
+      icon: 'Speech' as IconOption,
+      viewBox: '0 0 48 48'
     },
     {
       title: 'De VSP & Stad op orde',
       description:
         'Nieuwegein moet een groene stad blijven met veel voorzieningen. Er wordt niet gebouwd in parken.',
-      icon: 'Phone' as IconOption,
+      icon: 'Conference' as IconOption,
+      viewBox: '0 0 256 241'
     },
     {
       title: 'De VSP & Stad op orde',

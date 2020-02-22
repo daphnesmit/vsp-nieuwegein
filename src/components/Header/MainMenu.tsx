@@ -11,6 +11,9 @@ const List = styled.ul`
 const ListItem = styled.li`
   color: ${({ theme }) => theme.colors.white};
   font-weight: ${({ theme }) => theme.fontWeights.extrabold};
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 const ListItemLink = styled(props => <Link activeClassName="is--active" {...props} />)`

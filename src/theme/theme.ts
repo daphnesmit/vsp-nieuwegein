@@ -52,8 +52,8 @@ export const theme: DefaultTheme = {
     xxl: 128,
   },
   fonts: {
-    primary: 'Neuzeit Grotesk, sans-serif',
-    secondary: 'Neuzeit Grotesk, sans-serif',
+    primary: 'Neuzeit Grotesk, Arial, sans-serif',
+    secondary: 'Neuzeit Grotesk, Arial, sans-serif',
   },
   // shadows: {
   //   summary: `0 6px 35px 0 rgba(8, 35, 145, 0.1)`,

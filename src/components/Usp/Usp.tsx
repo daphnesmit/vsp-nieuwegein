@@ -9,6 +9,7 @@ export interface UspProps {
   title: string
   description: string
   icon: IconOption
+  viewBox?: string
 }
 
 const UspText = styled.div`
@@ -72,12 +73,12 @@ const UspContainer = styled(Box)`
   }
 `
 
-const Usp: React.FC<UspProps> = ({ title, description, icon }) => {
+const Usp: React.FC<UspProps> = ({ title, description, icon, viewBox }) => {
   return (
     <Link to="/">
       <UspContainer>
         <UspImage>
-          <Icon size={42} icon={icon} />
+          <Icon viewBox={viewBox} size={42} icon={icon} />
         </UspImage>
         <UspText>
           <UspTitle>{title}</UspTitle>
