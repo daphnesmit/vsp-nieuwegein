@@ -1,5 +1,5 @@
 import React from 'react'
-import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon'
+import { SvgIconProps } from '@material-ui/core/SvgIcon'
 import Box from '@material-ui/core/Box'
 import styled, { css } from 'styled-components'
 
@@ -37,7 +37,7 @@ const Icon: React.FC<IconProps> = ({
   height,
   color = 'primary',
   size,
-  viewBox = '0 0 24 24'
+  viewBox = '0 0 24 24',
 }) => {
   const IconComponent = icons[icon]
   const w = size ? size : width ? width : 20

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
 import { Link } from 'gatsby'
@@ -36,7 +35,7 @@ const HeroContainer = styled.section<HeroContainerProps>`
   }
 `
 
-const TitleContainer = styled(Box)`
+const HeroTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,14 +49,14 @@ const Hero: React.FC = () => {
       <Container maxWidth="lg">
         <Grid container justify="center" alignItems="center">
           <Grid item xs={12} sm={10} md={8}>
-            <TitleContainer>
+            <HeroTitleContainer>
               <TextRotator isInitialized={loaded} />
               <ZoomInAnimation isInitialized={loaded}>
                 <Button component={Link} to="/recent/">
                   Purchase Ekko
                 </Button>
               </ZoomInAnimation>
-            </TitleContainer>
+            </HeroTitleContainer>
           </Grid>
         </Grid>
       </Container>

@@ -13,6 +13,15 @@ module.exports = {
       'Welke perspectieven hebben wij als oud en jong in het toekomstige Nieuwegein? Wat gaat de komende structuurvisie bewerkstelligen?',
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-material-ui',
+      // If you want to use styled components you should change the injection order.
+      options: {
+        // stylesProvider: {
+        //   injectFirst: true,
+        // },
+      },
+    },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
