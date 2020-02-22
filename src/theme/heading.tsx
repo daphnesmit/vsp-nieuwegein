@@ -3,6 +3,18 @@ import { css } from 'styled-components'
 import { media } from '../utils/media'
 
 export const heading = css`
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    letter-spacing: -0.03em;
+    line-height: 1.3;
+    margin: 0;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
   h1 {
     font-family: ${({ theme }) => theme.fonts.secondary};
     font-weight: ${({ theme }) => theme.fontWeights.extrabold};

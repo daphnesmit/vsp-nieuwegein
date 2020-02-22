@@ -1,17 +1,9 @@
-import Button from '@material-ui/core/Button'
 import React from 'react'
 import styled from 'styled-components'
 import Hero from '../Hero'
-
-const StyledButton = styled(Button)`
-  background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
-  border-radius: 3px;
-  border: 0;
-  color: white;
-  height: 48px;
-  padding: 0 30px;
-  box-shadow: 0 3px 5px 2px rgba(255, 105, 135, 0.3);
-`
+import Usps from '../Usps'
+import { IconOption } from '../Icon/Icon'
+import Sections from '../Sections'
 
 interface IndexPageTemplateProps {
   title: string
@@ -30,10 +22,36 @@ const Container = styled.div`
 export const IndexPageTemplate: React.FC<IndexPageTemplateProps> = ({ title, image }) => {
   if (!image) return null
 
+  const usps = [
+    {
+      title: 'Duurzaamheid, Luchtkwaliteit, Groen en Geluid',
+      description:
+        'Aandacht voor o.a. klimaatadaptatie, het klimaatakkoord van Parijs, verminderen van geluid, CO2-uitstoot, (giftige) fossiele brandstoffen, fijn stof en stikstofdioxide worden ook op plaatselijk niveau steeds belangrijker.',
+      icon: 'Phone' as IconOption,
+    },
+    {
+      title: 'De VSP & Stad op orde',
+      description:
+        'Nieuwegein moet een groene stad blijven met veel voorzieningen. Er wordt niet gebouwd in parken.',
+      icon: 'Phone' as IconOption,
+    },
+    {
+      title: 'De VSP & Stad op orde',
+      description:
+        'Nieuwegein moet een groene stad blijven met veel voorzieningen. Er wordt niet gebouwd in parken.',
+      icon: 'Phone' as IconOption,
+    },
+    // {
+    //   alt: 'Stem VSP Lijst 7',
+    //   img: '/img/stem-vsp-lijst-7.jpeg'
+    // },
+  ]
   return (
     <>
-    <Hero/>
-    {/* <Container
+      <Hero />
+      <Usps usps={usps} mt={-15} />
+      <Sections.SectionGridList />
+      {/* <Container
       style={{
         backgroundImage: `url(${
           !!image.childImageSharp ? image.childImageSharp.fluid.src : image

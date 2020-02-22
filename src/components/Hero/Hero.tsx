@@ -14,7 +14,7 @@ interface HeroContainerProps {
   background: string
 }
 
-const HeroContainer = styled(Box)<HeroContainerProps>`
+const HeroContainer = styled.section<HeroContainerProps>`
   padding-top: 220px;
   padding-bottom: 320px;
   background-position: center;

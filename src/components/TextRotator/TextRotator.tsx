@@ -1,11 +1,12 @@
 import React from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import Box from '@material-ui/core/Box'
+import { zIndex } from '@/utils/zIndex'
 
 const TextRotatorContainer = styled(Box)`
   pointer-events: none;
   position: relative;
-  z-index: 10;
+  z-index: ${zIndex.textRotator};
   overflow: hidden;
   pointer-events: none;
   width: 100%;

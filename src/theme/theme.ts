@@ -3,6 +3,7 @@ import { DefaultTheme } from 'styled-components'
 import { colors } from './colors'
 import { grid } from './grid'
 
+
 export const theme: DefaultTheme = {
   breakpoints: ['40em', '52em', '64em', '80em'],
   fontSizes: {
@@ -14,20 +15,20 @@ export const theme: DefaultTheme = {
       large: '2rem',
     },
     desktop: {
-      h1: '5rem',
-      h2: '3.6rem',
+      h1: '4.8rem',
+      h2: '3.2rem',
       h3: '2.8rem',
-      h4: '2rem',
-      h5: '2.6rem',
-      h6: '2rem',
+      h4: '2.3rem',
+      h5: '2rem',
+      h6: '1.8rem',
     },
     mobile: {
       h1: '3.2rem',
       h2: '2.6rem',
-      h3: '2rem',
-      h4: '1.8rem',
-      h5: '2.2rem',
-      h6: '2rem',
+      h3: '2.3rem',
+      h4: '2rem',
+      h5: '2rem',
+      h6: '1.8rem',
     },
   },
   fontWeights: {

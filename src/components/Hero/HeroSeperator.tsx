@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { useTheme } from 'styled-components'
+import { zIndex } from '@/utils/zIndex'
 
 const HeroSeperatorContainer = styled.div`
   height: 100px;
@@ -8,7 +9,7 @@ const HeroSeperatorContainer = styled.div`
   right: 0;
   bottom: 0;
   width: 100%;
-  z-index: 1;
+  z-index: ${zIndex.heroSeperator};
 
   svg {
     height: 100px;
