@@ -20,6 +20,7 @@ const StyledButton = withStyles({
     justifyContent: 'center',
     lineHeight: 1.6,
     backgroundColor: theme.colors.primary,
+    color: theme.colors.white,
     borderColor: theme.colors.primary,
     fontWeight: theme.fontWeights.bold,
     fontFamily: [theme.fonts.primary].join(','),
@@ -36,14 +37,15 @@ const StyledButton = withStyles({
       left: '0',
       bottom: '0',
       right: '0',
-      backgroundColor: '#0069d9',
+      backgroundColor: theme.colors.secondary,
       transition: 'transform 250ms cubic-bezier(.38,.32,.36,.98) 0s',
       transform: 'scaleX(0)',
       transformOrigin: 'right center',
     },
     '&:hover': {
+      backgroundColor: theme.colors.primary,
       transform: 'translate3d(0,0,0)',
-      borderColor: '#0062cc',
+      borderColor: theme.colors.secondary,
       boxShadow: 'none',
       '&::before': {
         transform: 'scale(1)',
@@ -54,7 +56,7 @@ const StyledButton = withStyles({
       boxShadow: 'none',
     },
     '&:focus': {
-      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
+      boxShadow: '0 0 0 0.2rem rgba(4,31,121,.2)',
     },
   },
 })(Button)

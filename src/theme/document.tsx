@@ -10,6 +10,7 @@ export const html = css`
   }
 
   body {
+    background-color: ${({ theme }) => theme.colors.offWhite};
     font-family: ${({ theme }) => theme.fonts.primary};
     font-size: ${({ theme }) => theme.fontSizes.body.regular};
     -webkit-font-smoothing: antialiased;

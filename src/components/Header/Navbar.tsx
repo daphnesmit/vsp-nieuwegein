@@ -6,7 +6,7 @@ const Nav = styled.nav`
   position: fixed;
   width: 100%;
   top:0;
-  Navbar
+  z-index: 2;
 `
 
 const Navbar: React.FC = ({ children }) => <Nav>{children}</Nav>

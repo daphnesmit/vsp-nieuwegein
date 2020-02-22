@@ -691,7 +691,6 @@ export type FileFieldsEnum =
   'childMarkdownRemark___frontmatter___title' |
   'childMarkdownRemark___frontmatter___templateKey' |
   'childMarkdownRemark___frontmatter___description' |
-  'childMarkdownRemark___frontmatter___date' |
   'childMarkdownRemark___frontmatter___image___sourceInstanceName' |
   'childMarkdownRemark___frontmatter___image___absolutePath' |
   'childMarkdownRemark___frontmatter___image___relativePath' |
@@ -728,6 +727,7 @@ export type FileFieldsEnum =
   'childMarkdownRemark___frontmatter___image___publicURL' |
   'childMarkdownRemark___frontmatter___image___id' |
   'childMarkdownRemark___frontmatter___image___children' |
+  'childMarkdownRemark___frontmatter___date' |
   'childMarkdownRemark___excerpt' |
   'childMarkdownRemark___rawMarkdownBody' |
   'childMarkdownRemark___fileAbsolutePath' |
@@ -1493,7 +1493,6 @@ export type MarkdownRemarkFieldsEnum =
   'frontmatter___title' |
   'frontmatter___templateKey' |
   'frontmatter___description' |
-  'frontmatter___date' |
   'frontmatter___image___sourceInstanceName' |
   'frontmatter___image___absolutePath' |
   'frontmatter___image___relativePath' |
@@ -1555,6 +1554,7 @@ export type MarkdownRemarkFieldsEnum =
   'frontmatter___image___childMarkdownRemark___timeToRead' |
   'frontmatter___image___childMarkdownRemark___tableOfContents' |
   'frontmatter___image___childMarkdownRemark___children' |
+  'frontmatter___date' |
   'excerpt' |
   'rawMarkdownBody' |
   'fileAbsolutePath' |
@@ -1683,8 +1683,8 @@ export type MarkdownRemarkFrontmatter = {
   title?: Maybe<Scalars['String']>,
   templateKey?: Maybe<Scalars['String']>,
   description?: Maybe<Scalars['String']>,
-  date?: Maybe<Scalars['Date']>,
   image?: Maybe<File>,
+  date?: Maybe<Scalars['Date']>,
 };
 
 
@@ -1699,8 +1699,8 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>,
   templateKey?: Maybe<StringQueryOperatorInput>,
   description?: Maybe<StringQueryOperatorInput>,
-  date?: Maybe<DateQueryOperatorInput>,
   image?: Maybe<FileFilterInput>,
+  date?: Maybe<DateQueryOperatorInput>,
 };
 
 export type MarkdownRemarkGroupConnection = {
@@ -2375,6 +2375,7 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___plugins___version' |
   'pluginCreator___pluginOptions___plugins___browserAPIs' |
   'pluginCreator___pluginOptions___plugins___pluginFilepath' |
+  'pluginCreator___pluginOptions___alias____xutils' |
   'pluginCreator___pluginOptions___alias____xcomponents' |
   'pluginCreator___pluginOptions___alias____xtemplates' |
   'pluginCreator___pluginOptions___alias____xtheme' |
@@ -2583,6 +2584,7 @@ export type SitePluginFieldsEnum =
   'pluginOptions___plugins___pluginOptions___destinationDir' |
   'pluginOptions___plugins___browserAPIs' |
   'pluginOptions___plugins___pluginFilepath' |
+  'pluginOptions___alias____xutils' |
   'pluginOptions___alias____xcomponents' |
   'pluginOptions___alias____xtemplates' |
   'pluginOptions___alias____xtheme' |
@@ -2723,12 +2725,14 @@ export type SitePluginPluginOptions = {
 };
 
 export type SitePluginPluginOptionsAlias = {
+  _xutils?: Maybe<Scalars['String']>,
   _xcomponents?: Maybe<Scalars['String']>,
   _xtemplates?: Maybe<Scalars['String']>,
   _xtheme?: Maybe<Scalars['String']>,
 };
 
 export type SitePluginPluginOptionsAliasFilterInput = {
+  _xutils?: Maybe<StringQueryOperatorInput>,
   _xcomponents?: Maybe<StringQueryOperatorInput>,
   _xtemplates?: Maybe<StringQueryOperatorInput>,
   _xtheme?: Maybe<StringQueryOperatorInput>,
