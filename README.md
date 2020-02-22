@@ -3,6 +3,8 @@
   VSP nieuwegein
 </h1>
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ff37eb73-08ff-4533-97dd-099a2c63652f/deploy-status)](https://app.netlify.com/sites/vsp-nieuwegein/deploys)
+
 ## 🚀 Quick start
 
 1.  **Start developing.**
