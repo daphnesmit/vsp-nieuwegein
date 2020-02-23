@@ -38,9 +38,9 @@ export const IndexPageTemplate: React.FC<IndexPageTemplateProps> = ({ title, ima
       viewBox: '0 0 256 241'
     },
     {
-      title: 'De VSP & Stad op orde',
+      title: 'Armoede Bestrijding',
       description:
-        'Nieuwegein moet een groene stad blijven met veel voorzieningen. Er wordt niet gebouwd in parken.',
+        'Extra financiële ondersteuning voor senioren en kwetsbare emigranten',
       icon: 'Phone' as IconOption,
     },
     // {

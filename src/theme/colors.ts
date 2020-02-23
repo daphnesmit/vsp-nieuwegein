@@ -8,6 +8,8 @@ export interface Colors {
   white: string
   grey: string
   offWhite: string
+  subtitle: string
+  title: string
 }
 
 export const colors: Colors = {
@@ -19,5 +21,7 @@ export const colors: Colors = {
   black: '#000000',
   white: '#ffffff',
   offWhite: '#f5f5f5',
-  grey: '##5e605d',
+  grey: '#5e605d',
+  subtitle: '#878b92',
+  title: '#0b2341',
 }

@@ -39,6 +39,7 @@ const Title = styled(Box)<TextRotatorProps>`
   color: ${({ theme }) => theme.colors.white};
   font-size: 6.2rem;
   justify-content: center;
+  text-align: center;
   opacity: 0;
   position: absolute;
   top: 0;
@@ -54,7 +55,7 @@ const Title = styled(Box)<TextRotatorProps>`
   &:last-child {
     transition: all 500ms ease-in-out 4.25s;
   }
-  
+
   ${({ isInitialized }) =>
     isInitialized &&
     css`
@@ -82,10 +83,10 @@ interface TextRotatorProps {
 const TextRotator: React.FC<TextRotatorProps> = props => (
   <TextRotatorContainer>
     <TitleContainer>
-      <Title {...props}>Inspire people</Title>
-      <Title {...props}>Take action</Title>
-      <Title {...props}>Take action</Title>
-      <Title {...props}>Get involved</Title>
+      <Title {...props}>Het eigene van macht is beschermen</Title>
+      <Title {...props}>Ook ná de verkiezingen is de VSP er voor U!</Title>
+      <Title {...props}>Stem VSP lijst 7</Title>
+      <Title {...props}>De Verenigde Senioren Partij</Title>
     </TitleContainer>
   </TextRotatorContainer>
 )

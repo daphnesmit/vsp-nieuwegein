@@ -64,4 +64,14 @@ export const heading = css`
       font-size: ${({ theme }) => theme.fontSizes.desktop.h5};
     }
   }
+
+  h6 {
+    font-family: ${({ theme }) => theme.fonts.secondary};
+    font-weight: ${({ theme }) => theme.fontWeights.medium};
+    font-size: ${({ theme }) => theme.fontSizes.mobile.h6};
+
+    ${media.min('mobile')} {
+      font-size: ${({ theme }) => theme.fontSizes.desktop.h6};
+    }
+  }
 `

@@ -30,7 +30,7 @@ const BottomNav: React.FC = () => (
       <Logo>VSP nieuwegein</Logo>
       <MainMenu />
       <MenuButton>
-        <Button component={Link} to="/recent/">
+        <Button component={Link} to="/">
           Lid worden
         </Button>
       </MenuButton>

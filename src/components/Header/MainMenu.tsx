@@ -54,19 +54,19 @@ const MainMenu: React.FC = () => (
       <ListItemLink to="/">Partij programma</ListItemLink>
     </ListItem>
     <ListItem>
-      <ListItemLink to="/recent/">Standpunten</ListItemLink>
+      <ListItemLink to="/standpunten/">Standpunten</ListItemLink>
     </ListItem>
     <ListItem>
-      <ListItemLink to="/recent/">Bestuur</ListItemLink>
+      <ListItemLink to="/bestuur/">Bestuur</ListItemLink>
     </ListItem>
     <ListItem>
-      <ListItemLink to="/recent/">Lid worden</ListItemLink>
+      <ListItemLink to="/lid-worden/">Lid worden</ListItemLink>
     </ListItem>
     <ListItem>
-      <ListItemLink to="/recent/">Herman Troost</ListItemLink>
+      <ListItemLink to="/herman-troost/">Herman Troost</ListItemLink>
     </ListItem>
     <ListItem>
-      <ListItemLink to="/recent/">Contact</ListItemLink>
+      <ListItemLink to="/contact/">Contact</ListItemLink>
     </ListItem>
   </List>
 )

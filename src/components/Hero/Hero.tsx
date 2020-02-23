@@ -52,8 +52,8 @@ const Hero: React.FC = () => {
             <HeroTitleContainer>
               <TextRotator isInitialized={loaded} />
               <ZoomInAnimation isInitialized={loaded}>
-                <Button component={Link} to="/recent/">
-                  Purchase Ekko
+                <Button component={Link} to="/">
+                  Lid worden
                 </Button>
               </ZoomInAnimation>
             </HeroTitleContainer>
